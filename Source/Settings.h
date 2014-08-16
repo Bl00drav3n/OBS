@@ -235,3 +235,59 @@ public:
 private:
     void SelectPresetDialog(bool useQSV, bool useNVENC);
 };
+
+//============================================================================
+// SettingsHotkeys class
+
+class SettingsHotkeys : public SettingsPane
+{
+    //-----------------------------------------------------------------------
+    // Constructor/destructor
+
+public:
+    SettingsHotkeys();
+    virtual ~SettingsHotkeys() override;
+
+    //-----------------------------------------------------------------------
+    // Methods
+
+public:
+    // Interface
+    virtual CTSTR GetCategory() const override;
+    virtual HWND CreatePane(HWND parentHwnd) override;
+    virtual void DestroyPane() override;
+    virtual INT_PTR ProcMessage(UINT message, WPARAM wParam, LPARAM lParam) override;
+    virtual void ApplySettings() override;
+    virtual void CancelSettings() override;
+    virtual bool HasDefaults() const override;
+};
+
+//============================================================================
+// SettingsQSV class
+
+class SettingsQSV : public SettingsPane
+{
+    //-----------------------------------------------------------------------
+    // Constructor/destructor
+
+public:
+    SettingsQSV();
+    virtual ~SettingsQSV() override;
+
+    //-----------------------------------------------------------------------
+    // Methods
+
+public:
+    // Interface
+    virtual CTSTR GetCategory() const override;
+    virtual HWND CreatePane(HWND parentHwnd) override;
+    virtual void DestroyPane() override;
+    virtual INT_PTR ProcMessage(UINT message, WPARAM wParam, LPARAM lParam) override;
+    virtual void ApplySettings() override;
+    virtual void CancelSettings() override;
+    virtual bool HasDefaults() const override;
+
+private:
+    void RateControlMethodChanged();
+};
+
